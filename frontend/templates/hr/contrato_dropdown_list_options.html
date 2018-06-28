@@ -1,0 +1,4 @@
+<option value="0">---------</option>
+{% for contrato in contratos %}
+	<option value="{{ contrato.pk }}">{{ contrato.nombre }}</option>
+{% endfor %}

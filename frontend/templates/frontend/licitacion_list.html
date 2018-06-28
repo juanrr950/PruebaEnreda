@@ -1,0 +1,31 @@
+{% extends "master.html" %}
+{% load bootstrap %}
+{% block content %}
+    <h2>Licitaciones</h2>
+    
+     <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">publicada</th>
+        
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for licitacion in object_list  %}
+        <tr>
+          <td>
+            <a href="edit/{{licitacion.id}}">{{ licitacion.id}}</a>
+          </td>
+          <td class="align-middle">{{licitacion.nombre}}</td>
+          <td class="align-middle">{{licitacion.publicada}}</td>
+          <td> <a class="btn btn-danger" href="delete/{{licitacion.id}}" role="button">Borrar</a>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>	
+  <a class="btn btn-primary" href="/licitaciones/new" role="button">Nueva licitacion</a>
+   
+{% endblock %}

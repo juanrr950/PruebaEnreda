@@ -1,0 +1,44 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block imports %}
+	
+{% endblock %}
+
+
+{% block content %}
+	<table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Adjunto</th>
+        <th scope="col">Licitacion</th>
+        <th scope="col">Contrato</th>
+        <th scope="col">Precio</th>
+        <th scope="col">IVA</th>
+        <th scope="col">Total</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for factura in facturas %}
+        <tr>
+          <td>
+            <a href="edit/{{factura.id}}">{{ factura.id}}</a>
+          </td>
+          <td class="align-middle">{{factura.nombre}}</td>
+          <td class="align-middle">{{factura.fecha}}</td>
+          <td class="align-middle">{{factura.adjunto}}</td>
+          <td class="align-middle">{{factura.licitacion.nombre}}</td>
+          <td class="align-middle">{{factura.contrato.nombre}}</td>
+          <td class="align-middle">{{factura.precio}}&euro;</td>
+          <td class="align-middle">{{factura.iva}}&euro;</td>
+          <td class="align-middle">{{factura.total}}&euro;</td>
+          <td> <a class="btn btn-danger" href="delete/{{factura.id}}" role="button">Borrar</a>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>	
+  <a class="btn btn-primary" href="/facturas/new" role="button">Nueva Factura</a>
+{% endblock %}

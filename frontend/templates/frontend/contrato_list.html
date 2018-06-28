@@ -1,0 +1,32 @@
+{% extends "master.html" %}
+{% load bootstrap %}
+{% block content %}
+    <h2>Contratos</h2>
+    
+     <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">publicada</th>
+        <th scope="col">Licitacion</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for contrato in contratos  %}
+        <tr>
+          <td>
+            <a href="edit/{{contrato.id}}">{{ contrato.id}}</a>
+          </td>
+          <td class="align-middle">{{contrato.nombre}}</td>
+          <td class="align-middle">{{contrato.publicada}}</td>
+          <td>{{contrato.licitacion.nombre}}</td>
+          <td> <a class="btn btn-danger" href="delete/{{contrato.id}}" role="button">Borrar</a>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>	
+  <a class="btn btn-primary" href="/contratos/new" role="button">Nueva contrato</a>
+   
+{% endblock %}
