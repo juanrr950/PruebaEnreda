@@ -14,7 +14,7 @@ https://github.com/juanrr950/PruebaEnreda
 >python manage.py runserver
 
 4. A continuación acceder a la aplicación desde el navegor en la url http://127.0.0.1:8000/
-usuario: PruebaEnreda
+usuario: pruebaEnreda
 contraseña:Adernea@01
 
 También se puede acceder al modelo de datos mediante Django Admin en http://127.0.0.1:8000/admin
